@@ -119,7 +119,7 @@ lora.start()
 CLASS_PERSON         = 15
 
 # Detection threshold: Minimum confidance to tag as valid detection
-CONFIDANCE_THRESHOLD = 0.40 # 40% confidant
+CONFIDANCE_THRESHOLD = 0.60 # 60% confidant
 
 # Variable to store commandline arguments
 ARGS                 = None
