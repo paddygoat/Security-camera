@@ -1,3 +1,5 @@
+<img src="https://cdn.instructables.com/F7P/6GXM/JQ0SMF58/F7P6GXMJQ0SMF58.SQUARE3.jpg"> 
+
 <p>This blog shows how to build a security system based on detecting or 'inferring' the location of a person using a neural network USB pluggin stick on a Raspberry Pi. An Arduino type receiver is built from scratch to get data from the Raspberry Pi transmitter via the long range LoRa radio frequency protocol and show/sound an alarm. I've tried to show some of the thinking behind the project by laying it out 'as it happened' and there are a full set of python, arduino and PCB etc. files for implementation.</p><p><u>Level of difficulty:</u> Good, but not expert, Raspberry Pi skills required. Soldering skills = easy.</p><p>Most info on the interwebs about LoRa seems to point to the 'Things Network',  but what if we just want basic data transfer between 2 devices and don't need the whole world to witness our data? Peer to peer is quite possibly the answer.</p><p>In this case, a Raspberry Pi with a Dragonino LoRa/GPS hat will send data about the security state of a remote location (eg farm gate) to tell us if people are coming in or if someone has stolen one of our cows. The receiver is an Arduino MKRWAN 1300 which has a dedicated LoRa chip soldered onto it.  BE WARNED: This Arduino is a 3.3V device and will be destroyed by applying 5v to any (or most of) of the pins. Also, never operate either the Dragino hat or the Arduino device without an antenna attached! As far as code is concerned, both instances are really simple, although it took me a while to work out that I had to flash the Arduino with a firmware upgrade to get it to work properly. After plugging in the Dragonino hat, the Raspberry Pi was processed as follows:</p><pre>$ wget &lt;a href="https://codeload.github.com/dragino/rpi-lora-tranceiver/zip/master
 $ cd rpi-lora-tranceiver-master/dragino_lora_app
 $ make
@@ -32,12 +34,6 @@ $ ./dragino_lora_app sender&lt;/p&gt;</pre><p>This data is NOT secure, but there
 <img src="https://cdn.instructables.com/FQZ/P1JE/JQ0SMF5X/FQZP1JEJQ0SMF5X.SQUARE3.jpg"> 
 <img src="https://cdn.instructables.com/F50/Z0V9/JQ0SMF7B/F50Z0V9JQ0SMF7B.SQUARE3.jpg"> 
 <img src="https://cdn.instructables.com/FXX/1AOT/JQ0SMKD7/FXX1AOTJQ0SMKD7.SQUARE3.jpg"> 
-
-<table cellpadding="0" cellspacing="0" border="0" width="100%">
-<tr><td align="center">
-<img src="https://cdn.hackaday.io/images/original/1062421544266394231.gif">
-</td></tr>
-</table>
 
 
 <p>Since the neural network module using Python 3 i thought it would be a good idea to get the LoRa transmiiter hat on the Raspberry Pi, the Dragonino, to also be controlled using this version of Python. Fortunately, people have already done this and it's well documented here: <a href="https://github.com/mayeranalytics/pySX127x/issues/21"> https://github.com/mayeranalytics/pySX127x/issues...</a></p><p>However, there are a couple of extra steps that are skipped, so I'll write out the whole procedure here: </p><p>1. Remove the SD card from the RPi and insert it into a suitable PC. </p><p>2. Copy and paste the config.txt file from the /boot folder to your desktop folder. </p><p>3. Change the permissions using chmod 777 in command line, or whatever is convenient, and edit the file by adding: </p><pre>dtoverlay=spi0-cs,cs0_pin=25 </pre><p>to the very top. </p><p>4. Save, and paste back onto the SD card into boot again. This is the only way to quickly and easily edit this file! </p><p>5. Download the Python files from here: <a href="https://github.com/mayeranalytics/pySX127x"> https://github.com/mayeranalytics/pySX127x </a> , extract, and open up the 'board_config.py' in a text editor.  </p><p>6. Use the following values in board_config: </p><pre>DIO0 = 4     
