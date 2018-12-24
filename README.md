@@ -18,6 +18,23 @@ $ ./dragino_lora_app sender&lt;/p&gt;</pre><p>This data is NOT secure, but there
 <p>USB extention cables   12CM USB 2.0 AM AF BLK EXT </p><p><a href="https://uk.rs-online.com/web/p/products/1216568/">https://uk.rs-online.com/web/p/products/1216568/</a></p></li><li>
 <p>Case with transparent lid </p><p><a href="https://uk.rs-online.com/web/p/general-purpose-enclosures/0104212/">https://uk.rs-online.com/web/p/general-purpose-enc...</a></p></li><li>
 <p>39 Ohm resistor</p></li></ul>
+
+<img src="https://cdn.instructables.com/FQU/TAB2/JQ0SMJPU/FQUTAB2JQ0SMJPU.SQUARE3.jpg"> 
+<img src="https://cdn.instructables.com/FF5/0PK0/JQ0SMJPS/FF50PK0JQ0SMJPS.SQUARE3.jpg"> 
+<img src="https://cdn.instructables.com/FUO/H4VM/JQ0SMJPT/FUOH4VMJQ0SMJPT.SQUARE3.jpg"> 
+<img src="https://cdn.instructables.com/FP4/VTCI/JQ0SMHQ5/FP4VTCIJQ0SMHQ5.SQUARE3.jpg"> 
+
+<img src="https://cdn.instructables.com/FUP/S480/JQ0SMIIR/FUPS480JQ0SMIIR.SQUARE3.jpg"> 
+<img src="https://cdn.instructables.com/FOL/GDJD/JQ0SMF6M/FOLGDJDJQ0SMF6M.SQUARE3.jpg"> 
+<img src="https://cdn.instructables.com/FPL/3ST6/JQ0SMF8P/FPL3ST6JQ0SMF8P.SQUARE3.jpg"> 
+<img src="https://cdn.instructables.com/FEZ/BVGW/JQ0SMF80/FEZBVGWJQ0SMF80.SQUARE3.jpg"> 
+
+<img src="https://cdn.instructables.com/FQZ/P1JE/JQ0SMF5X/FQZP1JEJQ0SMF5X.SQUARE3.jpg"> 
+<img src="https://cdn.instructables.com/F50/Z0V9/JQ0SMF7B/F50Z0V9JQ0SMF7B.SQUARE3.jpg"> 
+<img src="https://cdn.instructables.com/FXX/1AOT/JQ0SMKD7/FXX1AOTJQ0SMKD7.SQUARE3.jpg"> 
+<img src="https://cdn.instructables.com/FXX/1AOT/JQ0SMKD7/FXX1AOTJQ0SMKD7.SQUARE.jpg"> 
+
+
 <p>Since the neural network module using Python 3 i thought it would be a good idea to get the LoRa transmiiter hat on the Raspberry Pi, the Dragonino, to also be controlled using this version of Python. Fortunately, people have already done this and it's well documented here: <a href="https://github.com/mayeranalytics/pySX127x/issues/21"> https://github.com/mayeranalytics/pySX127x/issues...</a></p><p>However, there are a couple of extra steps that are skipped, so I'll write out the whole procedure here: </p><p>1. Remove the SD card from the RPi and insert it into a suitable PC. </p><p>2. Copy and paste the config.txt file from the /boot folder to your desktop folder. </p><p>3. Change the permissions using chmod 777 in command line, or whatever is convenient, and edit the file by adding: </p><pre>dtoverlay=spi0-cs,cs0_pin=25 </pre><p>to the very top. </p><p>4. Save, and paste back onto the SD card into boot again. This is the only way to quickly and easily edit this file! </p><p>5. Download the Python files from here: <a href="https://github.com/mayeranalytics/pySX127x"> https://github.com/mayeranalytics/pySX127x </a> , extract, and open up the 'board_config.py' in a text editor.  </p><p>6. Use the following values in board_config: </p><pre>DIO0 = 4     
 DIO1 = 23     
 DIO2 = 24     
