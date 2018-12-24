@@ -1,0 +1,7 @@
+$ cd /home/pi/Desktop/dragonino_python_fix/pySX127x-master/
+$ python3 tx_beacon.py
+$ python3 test_lora.py
+$ cd /home/pi/Desktop/dragonino_python_fix/pySX127x-master/ && python3 tx_beacon.py -f 868 -s 7
+$ cd /home/pi/Desktop/dragonino_python_fix/pySX127x-master/ && python tx_beacon.py -f 868 -s 7
+
+self.write_payload([0x57,0x68,0x61,0x74,0x20,0x74,0x68,0x65,0x20,0x66,0x75,0x63,0x6B,0x21])
