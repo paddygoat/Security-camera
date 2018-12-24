@@ -33,6 +33,8 @@ $ ./dragino_lora_app sender&lt;/p&gt;</pre><p>This data is NOT secure, but there
 <img src="https://cdn.instructables.com/F50/Z0V9/JQ0SMF7B/F50Z0V9JQ0SMF7B.SQUARE3.jpg"> 
 <img src="https://cdn.instructables.com/FXX/1AOT/JQ0SMKD7/FXX1AOTJQ0SMKD7.SQUARE3.jpg"> 
 
+<p><img src="https://cdn.hackaday.io/images/original/1062421544266394231.gif" align="middle"></p>
+
 
 <p>Since the neural network module using Python 3 i thought it would be a good idea to get the LoRa transmiiter hat on the Raspberry Pi, the Dragonino, to also be controlled using this version of Python. Fortunately, people have already done this and it's well documented here: <a href="https://github.com/mayeranalytics/pySX127x/issues/21"> https://github.com/mayeranalytics/pySX127x/issues...</a></p><p>However, there are a couple of extra steps that are skipped, so I'll write out the whole procedure here: </p><p>1. Remove the SD card from the RPi and insert it into a suitable PC. </p><p>2. Copy and paste the config.txt file from the /boot folder to your desktop folder. </p><p>3. Change the permissions using chmod 777 in command line, or whatever is convenient, and edit the file by adding: </p><pre>dtoverlay=spi0-cs,cs0_pin=25 </pre><p>to the very top. </p><p>4. Save, and paste back onto the SD card into boot again. This is the only way to quickly and easily edit this file! </p><p>5. Download the Python files from here: <a href="https://github.com/mayeranalytics/pySX127x"> https://github.com/mayeranalytics/pySX127x </a> , extract, and open up the 'board_config.py' in a text editor.  </p><p>6. Use the following values in board_config: </p><pre>DIO0 = 4     
 DIO1 = 23     
